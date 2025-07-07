@@ -1,17 +1,25 @@
-Thanks for your interest in contributing to this project.
+## Contributing to this project
 
-These are some basic instructions to build and test the project.
+Thank you for considering contributing to this open-source project! Here are a few guidelines to help you:
 
-## Organization
+### I have found a bug or would like to suggest a new feature
 
-This project uses Cargo workspaces to organize its codebase. If you run `cargo build` or `cargo test` in the root of the repository, you'll be running it against all the crates that create this project.
+Great! You can do so by [opening a new issue](https://github.com/clechasseur/aoc_leaderbot_cargo_lambda/issues/new/choose).
+Before you do, you can also [search existing issues](https://github.com/clechasseur/aoc_leaderbot_cargo_lambda/issues) to see if your issue was already reported.
 
-We use Cargo Clippy and Cargo Fmt to keep the project formatted and follow best practices. You can run `make fmt` and `make clippy` to invoke those tools with the project's configuration. 
+### I have found what I think is a security vulnerability in your code
 
-## Building
+😱 If it's a sensitive issue, it is recommended **_NOT_** to create a public issue and instead [report a vulnerability privately](https://github.com/clechasseur/aoc_leaderbot_cargo_lambda/security/advisories/new).
 
-If you want to compile a release version for testing locally, you can run `make install`. This will compile your current project, and will put the `cargo-lambda` binary in `$CARGO_HOME/bin`.
+### I would like to contribute some code to the project
 
-## Testing
+Awesome! If you want to validate whether the contribution is likely to be accepted before starting the work, you can [create an Ideas discussion](https://github.com/clechasseur/aoc_leaderbot_cargo_lambda/discussions/new?category=ideas) to validate with the maintainers.
+When you're ready to start implementing your change, you can [fork this repository](https://github.com/clechasseur/aoc_leaderbot_cargo_lambda/fork), implement the change and then [create a Pull Request](https://github.com/clechasseur/aoc_leaderbot_cargo_lambda/compare).
+For more information on development in this project, see [DEVELOPMENT](DEVELOPMENT.md).
 
-This project uses Cargo Test for unit tests, you can find those in individual files. We also use Cargo's own integration test harness to write integration tests. You can find those under `crates/cargo-lambda-cli/tests`. Integration tests run along the regular test suite when you execute `cargo test`.
+### I would like to talk to the maintainers regarding something not mentioned above
+
+No problem! If it's OK to do this publicly, you can simply [create a discussion](https://github.com/clechasseur/aoc_leaderbot_cargo_lambda/discussions/new/choose).
+If you'd rather do this privately, you can use the following contact information to send an email:
+
+Charles Lechasseur \<shiftingbeard@outlook.com\>

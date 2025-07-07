@@ -1,15 +1,20 @@
 [package]
 name = "cargo-lambda-remote"
-readme = "README.md"
-rust-version.workspace = true
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
+rust-version.workspace = true
+
+readme = "README.md"
 license.workspace = true
+
 homepage.workspace = true
 repository.workspace = true
-keywords.workspace = true
-description.workspace = true
+documentation = "https://docs.rs/aoc_leaderbot_cargo_lambda_reote/"
+
+description = "cargo-lambda-remote fork for the aoc_leaderbot project"
+
+include = [ "src/**/*", "test-data/**/*", "LICENSE", "README.md" ]
 
 [dependencies]
 aws-config.workspace = true
