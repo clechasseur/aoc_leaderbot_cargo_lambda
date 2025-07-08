@@ -1139,6 +1139,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9555578bc9e57714c812a1f84e4fc5b4d21fcb063490c624de019f7464c91268"
 
 [[package]]
+name = "cfg_aliases"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "613afe47fcd5fac7ccf1db93babcb082c5994d996f20b8b159f2ad1658eb5724"
+
+[[package]]
 name = "chrono"
 version = "0.4.41"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1765,16 +1771,16 @@ dependencies = [
 
 [[package]]
 name = "fs_at"
-version = "0.1.10"
+version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "982f82cc75107eef84f417ad6c53ae89bf65b561937ca4a3b3b0fd04d0aa2425"
+checksum = "14af6c9694ea25db25baa2a1788703b9e7c6648dcaeeebeb98f7561b5384c036"
 dependencies = [
  "aligned",
  "cfg-if",
  "cvt",
  "libc",
  "nix",
- "windows-sys 0.48.0",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -2742,12 +2748,13 @@ dependencies = [
 
 [[package]]
 name = "nix"
-version = "0.26.4"
+version = "0.29.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "598beaf3cc6fdd9a5dfb1630c2800c7acd31df7aaf0f565796fba2b53ca1af1b"
+checksum = "71e2746dc3a24dd78b3cfcb7be93368c6de9963d30f43a6a73998a9cf4b17b46"
 dependencies = [
- "bitflags 1.3.2",
+ "bitflags 2.9.1",
  "cfg-if",
+ "cfg_aliases",
  "libc",
 ]
 
@@ -3248,18 +3255,16 @@ checksum = "ba39f3699c378cd8970968dcbff9c43159ea4cfbd88d43c00b22f2ef10a435d2"
 
 [[package]]
 name = "remove_dir_all"
-version = "0.8.0"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a22f9ad631d4eaa04be5a9cbb7bd64fa897f46800d623f0b54b12e7cf0238ffe"
+checksum = "808cc0b475acf76adf36f08ca49429b12aad9f678cb56143d5b3cb49b9a1dd08"
 dependencies = [
- "aligned",
  "cfg-if",
  "cvt",
  "fs_at",
- "lazy_static",
  "libc",
  "normpath",
- "windows-sys 0.45.0",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]
