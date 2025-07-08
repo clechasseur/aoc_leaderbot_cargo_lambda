@@ -59,7 +59,7 @@ clap = { version = "4.5.40", features = ["derive"] }
 chrono = { version = "0.4.41", default-features = false, features = ["clock"] }
 dirs = "4.0.0"
 figment = { version = "0.10.19", features = ["env", "test", "toml"] }
-miette = { version = "5.10.0" }
+miette = { version = "7.6.0" }
 reqwest = { version = "0.12.22", default-features = false, features = [
     "rustls-tls-native-roots",
 ] }
