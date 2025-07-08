@@ -76,4 +76,4 @@ tracing = { version = "0.1.41", features = ["log"] }
 tracing-subscriber = { version = "0.3.19", features = ["env-filter"] }
 uuid = { version = "1.17.0", features = ["v4"] }
 which = "4.4.2"
-zip = { version = "2.4.2", features = ["bzip2", "chrono", "deflate"] }
+zip = { version = "4.2.0", features = ["bzip2", "chrono", "deflate"] }
