@@ -46,7 +46,7 @@ aws-sdk-sts = { version ="1.76.0", features = ["behavior-version-latest"] }
 aws-smithy-runtime = { version = "1.8.3", features = ["test-util"] }
 aws-smithy-types = "1.3.2"
 aws-types = "1.3.7"
-base64 = "0.21.7"
+base64 = "0.22.1"
 cargo-lambda-build = { version = "0.1.0", path = "crates/cargo-lambda-build" }
 cargo-lambda-deploy = { version = "0.1.0", path = "crates/cargo-lambda-deploy" }
 cargo-lambda-interactive = { version = "0.1.0", path = "crates/cargo-lambda-interactive" }
