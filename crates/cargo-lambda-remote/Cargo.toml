@@ -1,15 +1,20 @@
 [package]
 name = "cargo-lambda-remote"
-readme = "README.md"
-rust-version.workspace = true
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
+rust-version.workspace = true
+
+readme = "README.md"
 license.workspace = true
+
 homepage.workspace = true
 repository.workspace = true
-keywords.workspace = true
-description.workspace = true
+documentation = "https://docs.rs/aoc_leaderbot_cargo_lambda_reote/"
+
+description = "cargo-lambda-remote fork for the aoc_leaderbot project"
+
+include = [ "src/**/*", "test-data/**/*", "LICENSE", "README.md" ]
 
 [dependencies]
 aws-config.workspace = true
@@ -19,8 +24,8 @@ clap.workspace = true
 dirs.workspace = true
 miette.workspace = true
 rustls.workspace = true
-rustls-pki-types = "1.10.0"
-rustls-platform-verifier = "0.5.1"
+rustls-pki-types = "1.12.0"
+rustls-platform-verifier = "0.5.3"
 serde.workspace = true
 thiserror.workspace = true
 

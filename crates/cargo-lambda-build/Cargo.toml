@@ -1,15 +1,20 @@
 [package]
 name = "cargo-lambda-build"
-readme = "README.md"
-rust-version.workspace = true
 version.workspace = true
 authors.workspace = true
 edition.workspace = true
+rust-version.workspace = true
+
+readme = "README.md"
 license.workspace = true
+
 homepage.workspace = true
 repository.workspace = true
-keywords.workspace = true
-description.workspace = true
+documentation = "https://docs.rs/aoc_leaderbot_cargo_lambda_build/"
+
+description = "cargo-lambda-build fork for the aoc_leaderbot project"
+
+include = [ "src/**/*", "LICENSE", "README.md" ]
 
 [dependencies]
 cargo-lambda-interactive.workspace = true
@@ -22,13 +27,13 @@ chrono-humanize = "0.2.3"
 miette.workspace = true
 object = "0.28.4"
 rustc_version = "0.4.0"
-sha2 = "0.10.2"
+sha2 = "0.10.9"
 serde.workspace = true
 tempfile.workspace = true
 thiserror.workspace = true
 toml.workspace = true
 tracing.workspace = true
-walkdir = "2.4.0"
+walkdir = "2.5.0"
 which.workspace = true
 zip.workspace = true
 
