@@ -24,8 +24,8 @@ clap.workspace = true
 dirs.workspace = true
 miette.workspace = true
 rustls.workspace = true
-rustls-pki-types = "1.10.0"
-rustls-platform-verifier = "0.5.1"
+rustls-pki-types = "1.12.0"
+rustls-platform-verifier = "0.5.3"
 serde.workspace = true
 thiserror.workspace = true
 
