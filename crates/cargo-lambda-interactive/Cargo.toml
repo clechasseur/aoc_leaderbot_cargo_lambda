@@ -17,7 +17,7 @@ description = "cargo-lambda-interactive fork for the aoc_leaderbot project"
 include = [ "src/**/*", "LICENSE", "README.md" ]
 
 [dependencies]
-indicatif = "0.17.11"
+indicatif = "0.18.0"
 inquire = "0.7.5"
 is-terminal = "0.4.16"
 miette.workspace = true
