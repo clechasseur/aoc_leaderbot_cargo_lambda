@@ -1,5 +1,6 @@
 pub use cargo_metadata::{
-    Metadata as CargoMetadata, Package as CargoPackage, Target as CargoTarget,
+    CrateType as CargoCrateType, Metadata as CargoMetadata, Package as CargoPackage,
+    Target as CargoTarget, TargetKind as CargoTargetKind,
 };
 use cargo_options::CommonOptions;
 use miette::Result;
@@ -86,7 +87,7 @@ pub fn binary_targets_from_metadata(
 }
 
 pub fn kind_bin_filter(target: &CargoTarget) -> bool {
-    target.kind.iter().any(|k| k == "bin")
+    target.kind.iter().any(|k| *k == CargoTargetKind::Bin)
 }
 
 pub fn selected_bin_filter(selected_bins: Vec<String>) -> Box<dyn Fn(&CargoTarget) -> bool> {
@@ -98,7 +99,8 @@ pub fn selected_bin_filter(selected_bins: Vec<String>) -> Box<dyn Fn(&CargoTarge
 // interested in the ones which `kind` is `bin` or `example`.
 // See https://doc.rust-lang.org/cargo/commands/cargo-metadata.html?highlight=targets%20metadata#json-format
 pub fn kind_example_filter(target: &CargoTarget) -> bool {
-    target.kind.iter().any(|k| k == "example") && target.crate_types.iter().any(|t| t == "bin")
+    target.kind.iter().any(|k| *k == CargoTargetKind::Example)
+        && target.crate_types.iter().any(|t| *t == CargoCrateType::Bin)
 }
 
 /// Extract all the binary target names from a Cargo.toml file
