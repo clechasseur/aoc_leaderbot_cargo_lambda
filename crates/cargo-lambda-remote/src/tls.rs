@@ -32,6 +32,10 @@ pub enum TlsError {
     #[error("failed to parse config: {0}")]
     #[diagnostic()]
     FailedToParseConfig(#[from] rustls::Error),
+
+    #[error("failed to create verifier: {0}")]
+    #[diagnostic()]
+    FailedToCreateVerifier(rustls::Error),
 }
 
 #[derive(Args, Clone, Debug, Deserialize, Serialize)]
@@ -121,7 +125,9 @@ impl TlsOptions {
             ClientConfig::builder().with_root_certificates(root_store)
         } else {
             use rustls_platform_verifier::BuilderVerifierExt;
-            ClientConfig::builder().with_platform_verifier()
+            ClientConfig::builder()
+                .with_platform_verifier()
+                .map_err(TlsError::FailedToCreateVerifier)?
         };
 
         let (cert, key) = parse_cert_and_key(self.cert_path().as_ref(), self.key_path().as_ref())?;

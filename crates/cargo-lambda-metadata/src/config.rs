@@ -2,8 +2,8 @@ use std::{collections::HashMap, path::PathBuf};
 
 use crate::{
     cargo::{
-        CargoMetadata, Metadata, PackageMetadata, binary_targets_from_metadata, build::Build,
-        deploy::Deploy, watch::Watch,
+        CargoMetadata, CargoTargetKind, Metadata, PackageMetadata, binary_targets_from_metadata,
+        build::Build, deploy::Deploy, watch::Watch,
     },
     error::MetadataError,
 };
@@ -176,7 +176,7 @@ fn workspace_metadata(
 
 fn package_metadata(metadata: &CargoMetadata, name: Option<&str>) -> Result<Option<Config>> {
     let kind_condition = |pkg: &Package, target: &Target| {
-        target.kind.iter().any(|kind| kind == "bin") && pkg.metadata.is_object()
+        target.kind.iter().any(|kind| *kind == CargoTargetKind::Bin) && pkg.metadata.is_object()
     };
 
     let Some(name) = name else {
@@ -228,7 +228,7 @@ fn get_config_from_packages(
 
 pub fn get_config_from_all_packages(metadata: &CargoMetadata) -> Result<HashMap<String, Config>> {
     let kind_condition = |pkg: &Package, target: &Target| {
-        target.kind.iter().any(|kind| kind == "bin") && pkg.metadata.is_object()
+        target.kind.iter().any(|kind| *kind == CargoTargetKind::Bin) && pkg.metadata.is_object()
     };
 
     let mut configs = HashMap::new();
@@ -238,7 +238,7 @@ pub fn get_config_from_all_packages(metadata: &CargoMetadata) -> Result<HashMap<
                 let meta: Metadata =
                     serde_json::from_value(pkg.metadata.clone()).into_diagnostic()?;
 
-                configs.insert(pkg.name.clone(), meta.lambda.package.into());
+                configs.insert(pkg.name.as_ref().into(), meta.lambda.package.into());
             }
         }
     }
