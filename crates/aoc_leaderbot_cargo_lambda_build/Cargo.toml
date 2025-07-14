@@ -1,0 +1,43 @@
+[package]
+name = "aoc_leaderbot_cargo_lambda_build"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+readme = "README.md"
+license.workspace = true
+
+homepage.workspace = true
+repository.workspace = true
+documentation = "https://docs.rs/aoc_leaderbot_cargo_lambda_build/"
+
+description = "cargo-lambda-build fork for the aoc_leaderbot project"
+
+include = [ "src/**/*", "LICENSE", "README.md" ]
+
+[dependencies]
+aoc_leaderbot_cargo_lambda_interactive.workspace = true
+aoc_leaderbot_cargo_lambda_metadata.workspace = true
+aoc_leaderbot_cargo_lambda_remote.workspace = true
+cargo-options.workspace = true
+cargo-zigbuild.workspace = true
+chrono.workspace = true
+chrono-humanize = "0.2.3"
+miette.workspace = true
+object = "0.37.1"
+rustc_version = "0.4.1"
+sha2 = "0.10.9"
+serde.workspace = true
+tempfile.workspace = true
+thiserror.workspace = true
+toml.workspace = true
+tracing.workspace = true
+walkdir = "2.5.0"
+which.workspace = true
+zip.workspace = true
+
+[dev-dependencies]
+assertables.workspace = true
+rstest = "0.25.0"
+tokio = { workspace = true, features = ["macros", "rt"] }

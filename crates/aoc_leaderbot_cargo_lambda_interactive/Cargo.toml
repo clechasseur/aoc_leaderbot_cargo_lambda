@@ -1,0 +1,25 @@
+[package]
+name = "aoc_leaderbot_cargo_lambda_interactive"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+
+readme = "README.md"
+license.workspace = true
+
+homepage.workspace = true
+repository.workspace = true
+documentation = "https://docs.rs/aoc_leaderbot_cargo_lambda_interactive/"
+
+description = "cargo-lambda-interactive fork for the aoc_leaderbot project"
+
+include = [ "src/**/*", "LICENSE", "README.md" ]
+
+[dependencies]
+indicatif = "0.18.0"
+inquire = "0.7.5"
+is-terminal = "0.4.16"
+miette.workspace = true
+tokio = { workspace = true, features = ["io-util", "process"] }
+tracing.workspace = true
