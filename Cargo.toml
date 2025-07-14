@@ -1,11 +1,11 @@
 [workspace]
 resolver = "3"
 members = [
-    "crates/cargo-lambda-build",
-    "crates/cargo-lambda-deploy",
-    "crates/cargo-lambda-interactive",
-    "crates/cargo-lambda-metadata",
-    "crates/cargo-lambda-remote",
+    "crates/aoc_leaderbot_cargo_lambda_build",
+    "crates/aoc_leaderbot_cargo_lambda_deploy",
+    "crates/aoc_leaderbot_cargo_lambda_interactive",
+    "crates/aoc_leaderbot_cargo_lambda_metadata",
+    "crates/aoc_leaderbot_cargo_lambda_remote",
 ]
 
 exclude = [
@@ -35,6 +35,10 @@ homepage = "https://github.com/clechasseur/aoc_leaderbot_cargo_lambda#readme"
 repository = "https://github.com/clechasseur/aoc_leaderbot_cargo_lambda"
 
 [workspace.dependencies]
+aoc_leaderbot_cargo_lambda_build = { version = "0.1.0", path = "crates/aoc_leaderbot_cargo_lambda_build" }
+aoc_leaderbot_cargo_lambda_interactive = { version = "0.1.0", path = "crates/aoc_leaderbot_cargo_lambda_interactive" }
+aoc_leaderbot_cargo_lambda_metadata = { version = "0.1.0", path = "crates/aoc_leaderbot_cargo_lambda_metadata" }
+aoc_leaderbot_cargo_lambda_remote = { version = "0.1.0", path = "crates/aoc_leaderbot_cargo_lambda_remote" }
 assertables = "9.8.1"
 aws-config = "1.8.1"
 aws-credential-types = "1.2.3"
@@ -47,10 +51,6 @@ aws-smithy-runtime = { version = "1.8.4", features = ["test-util"] }
 aws-smithy-types = "1.3.2"
 aws-types = "1.3.7"
 base64 = "0.22.1"
-cargo-lambda-build = { version = "0.1.0", path = "crates/cargo-lambda-build" }
-cargo-lambda-interactive = { version = "0.1.0", path = "crates/cargo-lambda-interactive" }
-cargo-lambda-metadata = { version = "0.1.0", path = "crates/cargo-lambda-metadata" }
-cargo-lambda-remote = { version = "0.1.0", path = "crates/cargo-lambda-remote" }
 cargo_metadata = "0.21.0"
 cargo-options = { version = "0.7.5", features = ["serde"] }
 cargo-zigbuild = "0.20.0"
