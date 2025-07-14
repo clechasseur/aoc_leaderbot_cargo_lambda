@@ -51,7 +51,7 @@ cargo-lambda-build = { version = "0.1.0", path = "crates/cargo-lambda-build" }
 cargo-lambda-interactive = { version = "0.1.0", path = "crates/cargo-lambda-interactive" }
 cargo-lambda-metadata = { version = "0.1.0", path = "crates/cargo-lambda-metadata" }
 cargo-lambda-remote = { version = "0.1.0", path = "crates/cargo-lambda-remote" }
-cargo_metadata = "0.20.0"
+cargo_metadata = "0.21.0"
 cargo-options = { version = "0.7.5", features = ["serde"] }
 cargo-zigbuild = "0.20.0"
 clap = { version = "4.5.41", features = ["derive"] }
