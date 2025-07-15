@@ -1,5 +1,9 @@
-# cargo-lambda-metadata
+# aoc_leaderbot_cargo_lambda_metadata
 
-This is a subcommand for [cargo-lambda](https://crates.io/crates/cargo-lambda).
+[![CI](https://github.com/clechasseur/aoc_leaderbot_cargo_lambda/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/clechasseur/aoc_leaderbot_cargo_lambda/actions/workflows/ci.yml) [![Security audit](https://github.com/clechasseur/aoc_leaderbot_cargo_lambda/actions/workflows/audit-check.yml/badge.svg?branch=main)](https://github.com/clechasseur/aoc_leaderbot_cargo_lambda/actions/workflows/audit-check.yml) [![crates.io](https://img.shields.io/crates/v/aoc_leaderbot_cargo_lambda_metadata.svg)](https://crates.io/crates/aoc_leaderbot_cargo_lambda_metadata) [![Crates.io MSRV](https://img.shields.io/crates/msrv/aoc_leaderbot_cargo_lambda_metadata)](https://github.com/clechasseur/aoc_leaderbot_cargo_lambda/tree/main/crates/aoc_leaderbot_cargo_lambda_metadata) [![downloads](https://img.shields.io/crates/d/aoc_leaderbot_cargo_lambda_metadata.svg)](https://crates.io/crates/aoc_leaderbot_cargo_lambda_metadata) [![docs.rs](https://img.shields.io/badge/docs-latest-blue.svg)](https://docs.rs/aoc_leaderbot_cargo_lambda_metadata) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](../../CODE_OF_CONDUCT.md)
 
-This crate is not designed to work standalone, use [cargo-lambda](https://crates.io/crates/cargo-lambda) instead.
+A fork of [`cargo-lambda-metadata`](https://github.com/cargo-lambda/cargo-lambda/tree/main/crates/cargo-lambda-metadata) for use in the [`aoc_leaderbot`](https://github.com/clechasseur/aoc_leaderbot) project.
+
+This project is considered internal and offers no API stability guarantee.
+
+For more information, see the [main project page](../../README.md).

@@ -1,15 +1,10 @@
-# cargo-lambda
+# aoc_leaderbot_cargo_lambda
 
-cargo-lambda is a [Cargo](https://doc.rust-lang.org/cargo/) subcommand to help you work with AWS Lambda.
+[![CI](https://github.com/clechasseur/aoc_leaderbot_carbo_lambda/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/clechasseur/aoc_leaderbot_carbo_lambda/actions/workflows/ci.yml) [![Security audit](https://github.com/clechasseur/aoc_leaderbot_carbo_lambda/actions/workflows/audit-check.yml/badge.svg?branch=main)](https://github.com/clechasseur/aoc_leaderbot_carbo_lambda/actions/workflows/audit-check.yml) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-Get started by looking at **[the documentation](https://www.cargo-lambda.info/guide/getting-started)**.
+A fork of [`cargo-lambda`](https://github.com/cargo-lambda/cargo-lambda) that is meant for the [`aoc_leaderbot`](https://github.com/clechasseur/aoc_leaderbot) project.
 
-## License
+This project is considered internal and offers no API stability guarantee.
 
-This project is released under the [MIT License](/LICENSE).
-
-## Sponsors
-
-This project is maintained thanks to the sponsorship of the individuals below. If you want to sponsor my work on Cargo Lambda, check out the [GitHub Sponsors page](https://github.com/sponsors/calavera/).
-
-<a href="https://github.com/arthurmf"><img src="https://avatars.githubusercontent.com/u/15284868?s=100&amp;v=4" width="50" height="50" alt="@arthurmf"></a> <a href="https://github.com/lmammino"><img src="https://avatars.githubusercontent.com/u/205629?s=100&amp;v=4" width="50" height="50" alt="@lmammino"></a> <a href="https://github.com/jeastham1993"><img src="https://avatars.githubusercontent.com/u/14234617?s=100&amp;v=4" width="50" height="50" alt="@jeastham1993"></a> <a href="https://github.com/RDarrylR"><img src="https://avatars.githubusercontent.com/u/1441671?s=100&v=4" width="50" height="50" alt="@RDarrylR"></a>
+For information about contributing to this project, see [CONTRIBUTING](./CONTRIBUTING.md).
+For information regarding local development, see [DEVELOPMENT](./DEVELOPMENT.md).

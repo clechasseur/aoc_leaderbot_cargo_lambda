@@ -39,20 +39,6 @@ cargo binstall just
 
 You can also install it via various [methods](https://github.com/casey/just#packages).
 
-### Llvm-cov
-
-If you want to run tests with coverage locally, you'll need to install [`cargo-llvm-cov`](https://github.com/taiki-e/cargo-llvm-cov), a code coverage tool for Rust. You can install it via `cargo`:
-
-```bash
-cargo install cargo-llvm-cov --locked
-```
-
-You can also install it via [cargo-binstall](https://github.com/cargo-bins/cargo-binstall):
-
-```bash
-cargo binstall cargo-llvm-cov
-```
-
 ## Development
 
 ### Running the tests
@@ -65,35 +51,15 @@ just test
 
 Any new feature or bug fix would need new tests to validate. Make sure all tests pass before submitting a PR.
 
-### Linting
+### Code formatting
 
-Before submitting a PR, make sure `rustfmt` and `clippy` are happy. To tidy up your code before committing, simply run
-
-```bash
-just tidy
-```
-
-Required checks will not pass if either of those report issues.
-
-### Code coverage
-
-This project's [code coverage settings](codecov.yml) are pretty stringent. To validate this locally, you can run
+Before submitting a PR, make sure `rustfmt` is happy. To format your code before committing, simply run
 
 ```bash
-just llvm-cov
+just fmt
 ```
 
-Make sure coverage is at the required level before submitting a PR.
-
-### Generating documentation
-
-All public symbols in the crate need to be documented, otherwise checks won't pass. To validate this, you can generate docs locally by running
-
-```bash
-just doc
-```
-
-Make sure any new public symbol is documented before submitting a PR.
+Required checks will not pass if `rustfmt` reports issues.
 
 ## Questions?
 
