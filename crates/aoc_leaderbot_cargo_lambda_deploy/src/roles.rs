@@ -1,11 +1,9 @@
 use aoc_leaderbot_cargo_lambda_interactive::progress::Progress;
+use aoc_leaderbot_cargo_lambda_metadata::cargo::deploy::Deploy;
 use aoc_leaderbot_cargo_lambda_remote::aws_sdk_config::SdkConfig;
 use aws_sdk_iam::Client as IamClient;
 use aws_sdk_sts::{Client as StsClient, Error};
 use aws_smithy_types::error::metadata::ProvideErrorMetadata;
-use aoc_leaderbot_cargo_lambda_interactive::progress::Progress;
-use aoc_leaderbot_cargo_lambda_metadata::cargo::deploy::Deploy;
-use aoc_leaderbot_cargo_lambda_remote::aws_sdk_config::SdkConfig;
 use miette::{IntoDiagnostic, Result, WrapErr};
 use tokio::time::{Duration, sleep};
 
@@ -175,11 +173,11 @@ async fn try_assume_role(client: &StsClient, role_arn: &str) -> Result<()> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use aoc_leaderbot_cargo_lambda_interactive::progress::Progress;
     use aws_credential_types::Credentials;
     use aws_sdk_s3::config::{Region, SharedCredentialsProvider};
     use aws_smithy_runtime::client::http::test_util::{ReplayEvent, StaticReplayClient};
     use aws_smithy_types::body::SdkBody;
-    use cargo_lambda_interactive::progress::Progress;
     use http::{Request, Response};
 
     #[tokio::test]
