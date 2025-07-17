@@ -1,5 +1,6 @@
 use aoc_leaderbot_cargo_lambda_remote::{
     RemoteConfig,
+    aws_sdk_iam::types::Tag,
     aws_sdk_lambda::types::{Environment, TracingConfig},
 };
 use clap::{ArgAction, Args, ValueHint};
@@ -159,6 +160,20 @@ impl Deploy {
             None => None,
             Some(tags) if tags.is_empty() => None,
             Some(tags) => Some(tags.join("&")),
+        }
+    }
+
+    pub fn iam_tags(&self) -> Option<Vec<Tag>> {
+        match &self.tag {
+            None => None,
+            Some(tags) if tags.is_empty() => None,
+            Some(tags) => Some(
+                extract_tags(tags)
+                    .into_iter()
+                    .map(|(k, v)| Tag::builder().key(k).value(v).build())
+                    .collect::<Result<Vec<_>, _>>()
+                    .expect("failed to build IAM tags"),
+            ),
         }
     }
 
@@ -515,7 +530,7 @@ fn extract_tags(tags: &Vec<String>) -> HashMap<String, String> {
 mod tests {
     use crate::{
         cargo::load_metadata,
-        config::{ConfigOptions, load_config_without_cli_flags},
+        config::{ConfigOptions, FunctionNames, load_config_without_cli_flags},
         lambda::Timeout,
         tests::fixture_metadata,
     };
@@ -620,7 +635,7 @@ mod tests {
     #[test]
     fn test_load_config_from_workspace() {
         let options = ConfigOptions {
-            name: Some("crate-3".to_string()),
+            names: FunctionNames::from_package("crate-3"),
             admerge: true,
             ..Default::default()
         };

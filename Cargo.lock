@@ -1027,11 +1027,177 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e35af189006b9c0f00a064685c727031e3ed2d8020f7ba284d78cc2671bd36ea"
 dependencies = [
  "serde",
+ "serde_json",
+ "tempfile",
+ "tokio",
+ "tracing",
+ "uuid",
 ]
 
 [[package]]
-name = "cargo-platform"
-version = "0.2.0"
+name = "cargo-lambda-interactive"
+version = "1.8.5"
+dependencies = [
+ "indicatif",
+ "inquire",
+ "is-terminal",
+ "miette 5.10.0",
+ "tokio",
+ "tracing",
+]
+
+[[package]]
+name = "cargo-lambda-invoke"
+version = "1.8.5"
+dependencies = [
+ "base64 0.21.7",
+ "cargo-lambda-metadata",
+ "cargo-lambda-remote",
+ "clap",
+ "dirs 4.0.0",
+ "httpmock",
+ "miette 5.10.0",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "strum",
+ "strum_macros",
+ "tempfile",
+ "thiserror 1.0.69",
+ "tokio",
+ "tracing",
+]
+
+[[package]]
+name = "cargo-lambda-metadata"
+version = "1.8.5"
+dependencies = [
+ "assertables",
+ "cargo-lambda-remote",
+ "cargo-options",
+ "cargo_metadata 0.15.4",
+ "clap",
+ "env-file-reader",
+ "figment",
+ "matchit 0.8.5",
+ "miette 5.10.0",
+ "remove_dir_all",
+ "serde",
+ "serde_json",
+ "strum",
+ "strum_macros",
+ "tempfile",
+ "thiserror 1.0.69",
+ "toml",
+ "tracing",
+]
+
+[[package]]
+name = "cargo-lambda-new"
+version = "1.8.5"
+dependencies = [
+ "assertables",
+ "cargo-lambda-interactive",
+ "cargo-lambda-metadata",
+ "clap",
+ "dunce",
+ "gix",
+ "indexmap 2.7.0",
+ "liquid",
+ "miette 5.10.0",
+ "regex",
+ "reqwest",
+ "serde",
+ "strum",
+ "strum_macros",
+ "tempfile",
+ "thiserror 1.0.69",
+ "toml",
+ "tracing",
+ "walkdir",
+ "zip",
+]
+
+[[package]]
+name = "cargo-lambda-remote"
+version = "1.8.5"
+dependencies = [
+ "aws-config",
+ "aws-credential-types",
+ "aws-sdk-lambda",
+ "aws-types",
+ "clap",
+ "dirs 4.0.0",
+ "miette 5.10.0",
+ "rustls 0.23.25",
+ "rustls-pki-types",
+ "rustls-platform-verifier",
+ "serde",
+ "tempfile",
+ "thiserror 1.0.69",
+ "tokio",
+]
+
+[[package]]
+name = "cargo-lambda-system"
+version = "1.8.5"
+dependencies = [
+ "cargo-lambda-build",
+ "cargo-lambda-metadata",
+ "clap",
+ "miette 5.10.0",
+ "serde",
+ "serde_json",
+ "serde_yml",
+ "strum",
+ "strum_macros",
+ "tracing",
+]
+
+[[package]]
+name = "cargo-lambda-watch"
+version = "1.8.5"
+dependencies = [
+ "aws_lambda_events",
+ "axum",
+ "base64 0.21.7",
+ "bytes",
+ "cargo-lambda-metadata",
+ "cargo-lambda-remote",
+ "cargo-options",
+ "chrono",
+ "dunce",
+ "http 1.2.0",
+ "http-body-util",
+ "http-serde",
+ "hyper 1.5.2",
+ "hyper-util",
+ "ignore",
+ "ignore-files",
+ "miette 5.10.0",
+ "opentelemetry",
+ "opentelemetry-aws",
+ "query_map",
+ "rustls 0.23.25",
+ "serde",
+ "serde_json",
+ "tempfile",
+ "thiserror 1.0.69",
+ "tokio",
+ "tokio-graceful-shutdown",
+ "tokio-rustls 0.26.1",
+ "tokio-util",
+ "tower-http",
+ "tracing",
+ "tracing-opentelemetry",
+ "tracing-subscriber",
+ "uuid",
+ "watchexec",
+]
+
+[[package]]
+name = "cargo-options"
+version = "0.7.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "84982c6c0ae343635a3a4ee6dedef965513735c8b183caa7289fa6e27399ebd4"
 dependencies = [
