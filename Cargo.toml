@@ -63,7 +63,7 @@ miette = { version = "7.6.0" }
 reqwest = { version = "0.12.22", default-features = false, features = ["rustls-tls-native-roots"] }
 rustls = "0.23.29"
 serde = { version = "1.0.219", features = ["derive"] }
-serde_json = "1.0.140"
+serde_json = "1.0.141"
 strum = "0.27.1"
 strum_macros = "0.27.1"
 tempfile = "3.20.0"
