@@ -3,7 +3,7 @@ use std::{collections::HashMap, path::PathBuf};
 use crate::{
     cargo::{
         CargoMetadata, CargoTargetKind, Metadata, PackageMetadata, binary_targets_from_metadata,
-        build::Build, deploy::Deploy, watch::Watch,
+        deploy::Deploy,
     },
     error::MetadataError,
 };
@@ -80,17 +80,13 @@ pub struct ConfigOptions {
 pub struct Config {
     #[serde(default, skip_serializing_if = "HashMap::is_empty")]
     pub env: HashMap<String, String>,
-    pub build: Build,
     pub deploy: Deploy,
-    pub watch: Watch,
 }
 
 impl From<PackageMetadata> for Config {
     fn from(meta: PackageMetadata) -> Self {
         Config {
             env: meta.env,
-            build: meta.build.unwrap_or_default(),
-            watch: meta.watch.unwrap_or_default(),
             deploy: meta.deploy.unwrap_or_default(),
         }
     }
@@ -323,18 +319,8 @@ fn get_config_from_package(package: &Package) -> Result<Option<Config>> {
 
 #[cfg(test)]
 mod tests {
-
-    use matchit::MatchError;
-
     use super::*;
-    use crate::{
-        cargo::{
-            build::{CompilerOptions, OutputFormat},
-            load_metadata,
-        },
-        lambda::Tracing,
-        tests::fixture_metadata,
-    };
+    use crate::{cargo::load_metadata, lambda::Tracing, tests::fixture_metadata};
 
     #[test]
     fn test_load_env_from_metadata() {
@@ -371,74 +357,6 @@ mod tests {
         let env_options = config.deploy.function_config.env_options.unwrap();
         assert_eq!(env_options.env_var, Some(vec!["VAR1=VAL1".to_string()]));
         assert_eq!(env_options.env_file, Some(".env.production".into()));
-
-        let compiler = config.build.compiler.unwrap();
-
-        let cargo_compiler = match compiler {
-            CompilerOptions::Cargo(opts) => opts,
-            other => panic!("unexpected compiler: {other:?}"),
-        };
-        assert_eq!(
-            cargo_compiler.subcommand,
-            Some(vec!["brazil".to_string(), "build".to_string()])
-        );
-        assert_eq!(
-            cargo_compiler.extra_args,
-            Some(vec!["--release".to_string()])
-        );
-    }
-
-    #[test]
-    fn test_load_router_from_metadata_admerge() {
-        let options = ConfigOptions {
-            names: FunctionNames::from_package("crate-3"),
-            admerge: true,
-            ..Default::default()
-        };
-
-        let metadata = load_metadata(fixture_metadata("workspace-package")).unwrap();
-        let config = load_config_without_cli_flags(&metadata, &options).unwrap();
-
-        let router = config.watch.router.unwrap();
-        assert_eq!(
-            router.at("/foo", "GET"),
-            Ok(("crate-1".to_string(), HashMap::new()))
-        );
-        assert_eq!(
-            router.at("/bar", "GET"),
-            Ok(("crate-1".to_string(), HashMap::new()))
-        );
-        assert_eq!(
-            router.at("/bar", "POST"),
-            Ok(("crate-2".to_string(), HashMap::new()))
-        );
-        assert_eq!(router.at("/baz", "GET"), Err(MatchError::NotFound));
-        assert_eq!(
-            router.at("/qux", "GET"),
-            Ok(("crate-3".to_string(), HashMap::new()))
-        );
-    }
-
-    #[test]
-    fn test_load_router_from_metadata_strict() {
-        let options = ConfigOptions {
-            names: FunctionNames::from_package("crate-3"),
-            ..Default::default()
-        };
-
-        let metadata = load_metadata(fixture_metadata("workspace-package")).unwrap();
-        let config = load_config_without_cli_flags(&metadata, &options).unwrap();
-
-        let router = config.watch.router.unwrap();
-        assert_eq!(router.raw.len(), 1);
-        assert_eq!(router.at("/foo", "GET"), Err(MatchError::NotFound));
-        assert_eq!(router.at("/bar", "GET"), Err(MatchError::NotFound));
-        assert_eq!(router.at("/bar", "POST"), Err(MatchError::NotFound));
-        assert_eq!(router.at("/baz", "GET"), Err(MatchError::NotFound));
-        assert_eq!(
-            router.at("/qux", "GET"),
-            Ok(("crate-3".to_string(), HashMap::new()))
-        );
     }
 
     #[test]
@@ -512,22 +430,5 @@ mod tests {
         let metadata = load_metadata(manifest).unwrap();
         let config = load_config(&args_config, &metadata, &options).unwrap();
         assert_eq!(config.deploy.function_config.memory, Some(2048.into()));
-    }
-
-    #[test]
-    fn test_load_metadata_from_package_workspace() {
-        let options = ConfigOptions {
-            names: FunctionNames::from_package("package-1"),
-            ..Default::default()
-        };
-
-        let metadata = load_metadata(fixture_metadata("workspace-with-package-config")).unwrap();
-        let config = load_config_without_cli_flags(&metadata, &options).unwrap();
-
-        assert_eq!(
-            config.build.cargo_opts.common.features,
-            vec!["lol".to_string()]
-        );
-        assert_eq!(config.build.output_format, Some(OutputFormat::Zip));
     }
 }

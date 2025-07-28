@@ -36,5 +36,4 @@ toml.workspace = true
 tracing.workspace = true
 
 [dev-dependencies]
-assertables.workspace = true
 tempfile.workspace = true

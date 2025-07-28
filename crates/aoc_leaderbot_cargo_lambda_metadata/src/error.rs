@@ -6,6 +6,7 @@ use thiserror::Error;
 
 #[derive(Debug, Diagnostic, Error)]
 pub enum MetadataError {
+    // TODO validate whether we can remove some error variants
     #[error("invalid memory value `{0}`")]
     #[diagnostic()]
     InvalidMemory(String),
