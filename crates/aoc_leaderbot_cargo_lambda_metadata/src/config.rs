@@ -3,7 +3,7 @@ use std::{collections::HashMap, path::PathBuf};
 use crate::{
     cargo::{
         CargoMetadata, CargoTargetKind, Metadata, PackageMetadata, binary_targets_from_metadata,
-        deploy::Deploy
+        deploy::Deploy,
     },
     error::MetadataError,
 };
@@ -320,11 +320,7 @@ fn get_config_from_package(package: &Package) -> Result<Option<Config>> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::{
-        cargo::load_metadata,
-        lambda::Tracing,
-        tests::fixture_metadata,
-    };
+    use crate::{cargo::load_metadata, lambda::Tracing, tests::fixture_metadata};
 
     #[test]
     fn test_load_env_from_metadata() {

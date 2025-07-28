@@ -131,9 +131,9 @@ pub use aws_sdk_lambda;
 
 #[cfg(test)]
 mod tests {
+    use crate::RemoteConfig;
     use aws_sdk_lambda::config::{ProvideCredentials, Region};
     use serial_test::serial;
-    use crate::RemoteConfig;
 
     fn setup() {
         let manifest_dir = env!("CARGO_MANIFEST_DIR");
