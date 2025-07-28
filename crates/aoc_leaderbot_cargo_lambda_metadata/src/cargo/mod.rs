@@ -2,9 +2,8 @@ pub use cargo_metadata::{
     CrateType as CargoCrateType, Metadata as CargoMetadata, Package as CargoPackage,
     Target as CargoTarget, TargetKind as CargoTargetKind,
 };
-use cargo_options::CommonOptions;
 use miette::Result;
-use serde::{Deserialize, Serialize, ser::SerializeStruct};
+use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::{
     collections::{HashMap, HashSet},
@@ -16,17 +15,12 @@ use tracing::{Level, enabled, trace};
 
 use crate::error::MetadataError;
 
-pub mod build;
-use build::Build;
-
 pub mod deploy;
 use deploy::Deploy;
 
 pub mod profile;
 use profile::CargoProfile;
 
-pub mod watch;
-use watch::Watch;
 const STRIP_CONFIG: &str = "profile.release.strip=\"symbols\"";
 const LTO_CONFIG: &str = "profile.release.lto=\"thin\"";
 const CODEGEN_CONFIG: &str = "profile.release.codegen-units=1";
@@ -57,10 +51,6 @@ pub struct PackageMetadata {
     pub env: HashMap<String, String>,
     #[serde(default)]
     pub deploy: Option<Deploy>,
-    #[serde(default)]
-    pub build: Option<Build>,
-    #[serde(default)]
-    pub watch: Option<Watch>,
 }
 
 /// Extract all the binary target names from a Cargo.toml file
@@ -255,92 +245,6 @@ pub fn main_binary_from_metadata(metadata: &CargoMetadata) -> Result<String, Met
 
 fn is_project_metadata_ok(path: &Path) -> bool {
     path.is_dir() && metadata(path).is_ok()
-}
-
-pub(crate) fn serialize_common_options<S>(
-    state: &mut <S as serde::Serializer>::SerializeStruct,
-    opts: &CommonOptions,
-) -> Result<(), S::Error>
-where
-    S: serde::Serializer,
-{
-    if opts.quiet {
-        state.serialize_field("quiet", &true)?;
-    }
-    if let Some(jobs) = opts.jobs {
-        state.serialize_field("jobs", &jobs)?;
-    }
-    if opts.keep_going {
-        state.serialize_field("keep_going", &true)?;
-    }
-    if let Some(profile) = &opts.profile {
-        state.serialize_field("profile", profile)?;
-    }
-    if !opts.features.is_empty() {
-        state.serialize_field("features", &opts.features)?;
-    }
-    if opts.all_features {
-        state.serialize_field("all_features", &true)?;
-    }
-    if opts.no_default_features {
-        state.serialize_field("no_default_features", &true)?;
-    }
-    if !opts.target.is_empty() {
-        state.serialize_field("target", &opts.target)?;
-    }
-    if let Some(target_dir) = &opts.target_dir {
-        state.serialize_field("target_dir", target_dir)?;
-    }
-    if !opts.message_format.is_empty() {
-        state.serialize_field("message_format", &opts.message_format)?;
-    }
-    if opts.verbose > 0 {
-        state.serialize_field("verbose", &opts.verbose)?;
-    }
-    if let Some(color) = &opts.color {
-        state.serialize_field("color", color)?;
-    }
-    if opts.frozen {
-        state.serialize_field("frozen", &true)?;
-    }
-    if opts.locked {
-        state.serialize_field("locked", &true)?;
-    }
-    if opts.offline {
-        state.serialize_field("offline", &true)?;
-    }
-    if !opts.config.is_empty() {
-        state.serialize_field("config", &opts.config)?;
-    }
-    if !opts.unstable_flags.is_empty() {
-        state.serialize_field("unstable_flags", &opts.unstable_flags)?;
-    }
-    if let Some(timings) = &opts.timings {
-        state.serialize_field("timings", timings)?;
-    }
-
-    Ok(())
-}
-
-pub(crate) fn count_common_options(opts: &CommonOptions) -> usize {
-    opts.quiet as usize
-        + opts.jobs.is_some() as usize
-        + opts.keep_going as usize
-        + opts.profile.is_some() as usize
-        + !opts.features.is_empty() as usize
-        + opts.all_features as usize
-        + opts.no_default_features as usize
-        + !opts.target.is_empty() as usize
-        + opts.target_dir.is_some() as usize
-        + !opts.message_format.is_empty() as usize
-        + (opts.verbose > 0) as usize
-        + opts.color.is_some() as usize
-        + opts.frozen as usize
-        + opts.locked as usize
-        + opts.offline as usize
-        + !opts.config.is_empty() as usize
-        + !opts.unstable_flags.is_empty() as usize
-        + opts.timings.is_some() as usize
 }
 
 pub(crate) fn deserialize_vec_or_map<'de, D>(

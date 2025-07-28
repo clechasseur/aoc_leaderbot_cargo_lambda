@@ -22,15 +22,8 @@ aws-sdk-iam.workspace = true
 aws-sdk-lambda.workspace = true
 aws-types.workspace = true
 clap.workspace = true
-dirs.workspace = true
-miette.workspace = true
-rustls.workspace = true
-rustls-pki-types = "1.12.0"
-rustls-platform-verifier = "0.6.0"
 serde.workspace = true
-thiserror.workspace = true
 
 [dev-dependencies]
-aws-credential-types.workspace = true
-tempfile.workspace = true
+serial_test.workspace = true
 tokio = { workspace = true, features = ["macros", "rt"] }

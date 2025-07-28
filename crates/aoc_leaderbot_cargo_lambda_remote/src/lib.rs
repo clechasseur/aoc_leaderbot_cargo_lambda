@@ -8,7 +8,6 @@ use aws_config::{
 use aws_types::{SdkConfig, region::Region};
 use clap::Args;
 use serde::{Deserialize, Serialize, ser::SerializeStruct};
-pub mod tls;
 
 pub const DEFAULT_REGION: &str = "us-east-1";
 
@@ -133,7 +132,7 @@ pub use aws_sdk_lambda;
 #[cfg(test)]
 mod tests {
     use aws_sdk_lambda::config::{ProvideCredentials, Region};
-
+    use serial_test::serial;
     use crate::RemoteConfig;
 
     fn setup() {
@@ -155,6 +154,7 @@ mod tests {
     /// - Region is undefined
     /// - Credentials are undefined
     #[tokio::test]
+    #[serial(aws_env)]
     async fn undefined_profile() {
         setup();
 
@@ -182,6 +182,7 @@ mod tests {
     /// - Region is undefined
     /// - Credentials are used from the profile
     #[tokio::test]
+    #[serial(aws_env)]
     async fn undefined_profile_with_creds() {
         setup();
 
@@ -210,6 +211,7 @@ mod tests {
     /// - Region is used from the profile
     /// - Credentials are used from the profile
     #[tokio::test]
+    #[serial(aws_env)]
     async fn profile_with_region() {
         setup();
 
@@ -238,6 +240,7 @@ mod tests {
     /// - Region is undefined
     /// - Credentials are used from the profile
     #[tokio::test]
+    #[serial(aws_env)]
     async fn profile_without_region() {
         setup();
 
@@ -266,6 +269,7 @@ mod tests {
     /// - Region is used from the profile
     /// - Credentials are used from the profile
     #[tokio::test]
+    #[serial(aws_env)]
     async fn default_profile() {
         setup();
 
