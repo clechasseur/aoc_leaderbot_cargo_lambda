@@ -379,9 +379,9 @@ dependencies = [
 
 [[package]]
 name = "aws-sdk-cloudwatchlogs"
-version = "1.99.0"
+version = "1.100.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "971dcaf0eca0b6887ed3e3251815e0456a79baa729f05dc87c5284a6a4ad9829"
+checksum = "ddd943f79a325b4ec4304a80b3f83d29232fa3eb3baf4478c49ea8a74d0455e8"
 dependencies = [
  "aws-credential-types",
  "aws-runtime",
@@ -425,9 +425,9 @@ dependencies = [
 
 [[package]]
 name = "aws-sdk-lambda"
-version = "1.94.0"
+version = "1.95.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4066b5c41de4c8901314d50fcf99a9e322af244d8def067cb73aa0b23fdda90b"
+checksum = "3bfe4173eab4c3e451b83b95d209e6af0efc184b5891c1d4ed3d963e577dcb55"
 dependencies = [
  "aws-credential-types",
  "aws-runtime",

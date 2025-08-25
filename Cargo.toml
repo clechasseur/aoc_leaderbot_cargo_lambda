@@ -43,9 +43,9 @@ aoc_leaderbot_cargo_lambda_remote = { version = "0.1.0", path = "crates/aoc_lead
 assertables = "9.8.2"
 aws-config = "1.8.5"
 aws-credential-types = "1.2.5"
-aws-sdk-cloudwatchlogs = { version ="1.99.0", features = ["behavior-version-latest"] }
+aws-sdk-cloudwatchlogs = { version ="1.100.0", features = ["behavior-version-latest"] }
 aws-sdk-iam = { version ="1.87.0", features = ["behavior-version-latest"] }
-aws-sdk-lambda = { version ="1.94.0", features = ["behavior-version-latest"] }
+aws-sdk-lambda = { version ="1.95.0", features = ["behavior-version-latest"] }
 aws-sdk-s3 = { version ="1.103.0", features = ["behavior-version-latest"] }
 aws-sdk-sts = { version ="1.84.0", features = ["behavior-version-latest"] }
 aws-smithy-runtime = { version = "1.9.0", features = ["test-util"] }
