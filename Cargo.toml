@@ -54,7 +54,7 @@ aws-types = "1.3.9"
 base64 = "0.22.1"
 cargo_metadata = "0.23.0"
 cargo-options = { version = "0.7.6", features = ["serde"] }
-clap = { version = "4.5.45", features = ["derive"] }
+clap = { version = "4.5.48", features = ["derive"] }
 chrono = { version = "0.4.42", default-features = false, features = ["clock"] }
 figment = { version = "0.10.19", features = ["env", "test", "toml"] }
 miette = { version = "7.6.0" }
