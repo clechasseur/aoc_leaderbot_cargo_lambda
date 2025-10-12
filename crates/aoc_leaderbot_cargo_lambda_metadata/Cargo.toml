@@ -17,7 +17,7 @@ description = "cargo-lambda-metadata fork for the aoc_leaderbot project"
 include = [ "src/**/*", "tests/**/*", "LICENSE", "README.md" ]
 
 [dependencies]
-anyhow = "1.0.99"
+anyhow = "1.0.100"
 aoc_leaderbot_cargo_lambda_remote.workspace = true
 cargo_metadata.workspace = true
 cargo-options.workspace = true
