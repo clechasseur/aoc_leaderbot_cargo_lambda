@@ -410,9 +410,9 @@ dependencies = [
 
 [[package]]
 name = "aws-sdk-lambda"
-version = "1.100.0"
+version = "1.101.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b90dc0a8776b0986217474f6f171047051506c7ba7ea261f313ec1750df1dcfa"
+checksum = "f1ce0a7ca4d58eb8917aee7f0e2c949be4d029cd2af21e40a64eaef4274dd12d"
 dependencies = [
  "aws-credential-types",
  "aws-runtime",
@@ -3678,7 +3678,7 @@ dependencies = [
  "getrandom 0.3.3",
  "once_cell",
  "rustix 1.0.8",
- "windows-sys 0.60.2",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
