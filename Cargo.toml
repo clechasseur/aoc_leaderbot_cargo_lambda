@@ -68,5 +68,5 @@ thiserror = "2.0.17"
 tokio = "1.48.0"
 toml = "0.9.8"
 tracing = { version = "0.1.43", features = ["log"] }
-uuid = { version = "1.18.1", features = ["v4"] }
+uuid = { version = "1.19.0", features = ["v4"] }
 zip = { version = "6.0.0", features = ["bzip2", "chrono", "deflate"] }
