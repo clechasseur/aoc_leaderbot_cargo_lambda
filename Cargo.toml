@@ -44,8 +44,8 @@ assertables = "9.8.2"
 aws-config = "1.8.11"
 aws-credential-types = "1.2.10"
 aws-sdk-cloudwatchlogs = { version ="1.112.0", features = ["behavior-version-latest"] }
-aws-sdk-iam = { version ="1.99.0", features = ["behavior-version-latest"] }
-aws-sdk-lambda = { version ="1.109.0", features = ["behavior-version-latest"] }
+aws-sdk-iam = { version ="1.100.0", features = ["behavior-version-latest"] }
+aws-sdk-lambda = { version ="1.110.0", features = ["behavior-version-latest"] }
 aws-sdk-s3 = { version ="1.116.0", features = ["behavior-version-latest"] }
 aws-sdk-sts = { version ="1.94.0", features = ["behavior-version-latest"] }
 aws-smithy-runtime = { version = "1.9.4", features = ["test-util"] }
