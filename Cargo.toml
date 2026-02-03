@@ -43,13 +43,13 @@ aoc_leaderbot_cargo_lambda_remote = { version = "0.1.0", path = "crates/aoc_lead
 assertables = "9.8.4"
 aws-config = "1.8.12"
 aws-credential-types = "1.2.11"
-aws-sdk-cloudwatchlogs = { version ="1.114.0", features = ["behavior-version-latest"] }
-aws-sdk-iam = { version ="1.101.0", features = ["behavior-version-latest"] }
-aws-sdk-lambda = { version ="1.112.0", features = ["behavior-version-latest"] }
-aws-sdk-s3 = { version ="1.119.0", features = ["behavior-version-latest"] }
-aws-sdk-sts = { version ="1.95.0", features = ["behavior-version-latest"] }
-aws-smithy-runtime = { version = "1.9.5", features = ["test-util"] }
-aws-smithy-types = "1.3.5"
+aws-sdk-cloudwatchlogs = { version ="1.115.0", features = ["behavior-version-latest"] }
+aws-sdk-iam = { version ="1.102.0", features = ["behavior-version-latest"] }
+aws-sdk-lambda = { version ="1.114.0", features = ["behavior-version-latest"] }
+aws-sdk-s3 = { version ="1.121.0", features = ["behavior-version-latest"] }
+aws-sdk-sts = { version ="1.96.0", features = ["behavior-version-latest"] }
+aws-smithy-runtime = { version = "1.10.0", features = ["test-util"] }
+aws-smithy-types = "1.4.3"
 aws-types = "1.3.11"
 base64 = "0.22.1"
 cargo_metadata = "0.23.1"
