@@ -40,7 +40,7 @@ aoc_leaderbot_cargo_lambda_build = { version = "0.1.0", path = "crates/aoc_leade
 aoc_leaderbot_cargo_lambda_interactive = { version = "0.1.0", path = "crates/aoc_leaderbot_cargo_lambda_interactive" }
 aoc_leaderbot_cargo_lambda_metadata = { version = "0.1.0", path = "crates/aoc_leaderbot_cargo_lambda_metadata" }
 aoc_leaderbot_cargo_lambda_remote = { version = "0.1.0", path = "crates/aoc_leaderbot_cargo_lambda_remote" }
-assertables = "9.8.4"
+assertables = "9.8.6"
 aws-config = "1.8.13"
 aws-credential-types = "1.2.11"
 aws-sdk-cloudwatchlogs = { version ="1.116.0", features = ["behavior-version-latest"] }
