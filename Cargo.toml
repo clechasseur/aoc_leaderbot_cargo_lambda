@@ -45,7 +45,7 @@ aws-config = "1.8.13"
 aws-credential-types = "1.2.11"
 aws-sdk-cloudwatchlogs = { version ="1.116.0", features = ["behavior-version-latest"] }
 aws-sdk-iam = { version ="1.103.0", features = ["behavior-version-latest"] }
-aws-sdk-lambda = { version ="1.115.0", features = ["behavior-version-latest"] }
+aws-sdk-lambda = { version ="1.133.0", features = ["behavior-version-latest"] }
 aws-sdk-s3 = { version ="1.122.0", features = ["behavior-version-latest"] }
 aws-sdk-sts = { version ="1.97.0", features = ["behavior-version-latest"] }
 aws-smithy-runtime = { version = "1.10.0", features = ["test-util"] }
